@@ -7,9 +7,11 @@ jobs:
   run:
     name: Run script to fetch pings
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v6
-        with:
-          ref: MTRNord/ping-standalone
       - run: |
-          npm install && npm run prepare && npm run start
+          npm install
+          npm run prepare
+          npm run start
